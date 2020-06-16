@@ -1,26 +1,3 @@
-//Use this script to generate your character
-// function Person(race,item){
-//     this.race = race;
-//     this.item = item;
-//     this.currenthealth = 100;
-//     this.maxHealth = 100;
-    
-//     this.min = 3;
-//     this.maxDamage = 20;
-//     this.maxHealing = 30;
-
-//     this.heal = function(){};
-
-//     this.damage = function(){};
-
-//     this.totalDamage = this.damage();
-
-//     this.displayChar = function(){
-//         return console.log(`I am a ${this.race}, I wield a ${this.item}, my total health point are ${this.maxHealth}`);
-//     };
-
-// }
-
 
 class Character{
 
@@ -32,8 +9,8 @@ class Character{
     damageTotal = 0;
 
     //HEALIN STUFF
-    maxHealing = 30;
-    boostHealing = 0;
+    maxHealing = 20;
+    boostHealing = 1;
     currenthealth = 100;
     maxHealth = 100;
 
@@ -53,7 +30,21 @@ class Character{
     
     
 
-    this.heal = function(){};
+    this.heal = function(){
+        console.log(this.currenthealth);
+
+        this.currenthealth = this.currenthealth + Math.round(this.maxHealing*this.boostHealing);
+
+        console.log("vie récuperée :"+Math.round(this.maxHealing*this.boostHealing));
+        
+
+        if(this.currenthealth>=this.maxHealth){
+            this.currenthealth = this.maxHealth;
+        }
+        console.log("vie restante"+this.currenthealth);
+
+
+    };
     
      this.setRaceBoost = function(){
          switch(this.race){
@@ -72,7 +63,7 @@ class Character{
          switch(this.item){
              case 'boots' : this.dodgeChance = 0.3;
                 break;
-             case 'cape' : this.boostHealing = 0.2;
+             case 'cape' : this.boostHealing = 1.2;
                  break;
              case 'sword' : this.damageBoost = 1.3;
                  break;
@@ -107,7 +98,7 @@ console.log(player1.maxHealth)
  console.log(player1.damageBoost);
  player1.displayChar();
 
-let player2 = new Character('human','cape');
+let player2 = new Character('skeleton','cape');
 player2.setObjetBoost();
 player2.setRaceBoost();
 player2.displayChar();
@@ -141,6 +132,19 @@ function endTurnP1(){
     healButtonP2.disabled = false;
     yieldButtonP2.disabled = false;
     
+    if(player2.race == 'skeleton'){
+        console.log("vie du PLAYER1 a la fin du tour : "+player1.currenthealth);
+        console.log("vie du PLAYER2 a la fin du tour : "+player2.currenthealth);
+        player1.currenthealth = player1.currenthealth - Math.round(player1.currenthealth*player2.lifeSteal);
+        player2.currenthealth = player2.currenthealth + Math.round(player1.currenthealth*player2.lifeSteal);
+        console.log("vie volée = "+Math.round(player1.currenthealth*player2.lifeSteal));
+        console.log('vie JOUEUR 1 debut du tour : '+player1.currenthealth);
+        console.log('vie JOUEUR 2 debut du tour : '+player2.currenthealth);
+        if(player1.currenthealth<=0){
+            endGame();
+            alert('player 2 WON');
+        }
+    }
     
 }
 function endTurnP2(){
@@ -150,7 +154,19 @@ function endTurnP2(){
     attackButtonP2.disabled = true;
     healButtonP2.disabled = true;
     yieldButtonP2.disabled = true;
-
+    if(player1.race == 'skeleton'){
+        console.log("vie du PLAYER2 a la fin du tour : "+player2.currenthealth);
+        console.log("vie du PLAYER1 a la fin du tour : "+player1.currenthealth);
+        player2.currenthealth = player2.currenthealth - Math.round(player2.currenthealth*player1.lifeSteal);
+        player1.currenthealth = player1.currenthealth + Math.round(player2.currenthealth*player1.lifeSteal);
+        console.log("vie volée = "+Math.round(player2.currenthealth*player1.lifeSteal));
+        console.log('vie JOUEUR 2 debut du tour : '+player2.currenthealth);
+        console.log('vie JOUEUR 1 debut du tour : '+player1.currenthealth);
+        if(player2.currenthealth<=0){
+            endGame();
+            alert('player 1 WON');
+        }
+    }
 }
 function endGame(){
     attackButtonP1.disabled = true;
@@ -198,6 +214,7 @@ document.getElementById("attack1").addEventListener("click", function(){
     
 });
 document.getElementById("heal1").addEventListener("click", function(){
+    player1.heal();
     endTurnP1(); 
 });
 document.getElementById("surrender1").addEventListener("click", function(){
@@ -223,6 +240,7 @@ document.getElementById("attack2").addEventListener("click", function(){
     
 });
 document.getElementById("heal2").addEventListener("click", function(){
+    player2.heal();
     endTurnP2();
 });
 document.getElementById("surrender2").addEventListener("click", function(){
