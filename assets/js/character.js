@@ -28,7 +28,7 @@ class Character{
     min = 3;
     maxDamage = 20;
     damageBoost = 0;
-    maxDamageTaken = 20;
+    maxDamageTaken = 1;
     damageTotal = 0;
 
     //HEALIN STUFF
@@ -112,6 +112,11 @@ player2.setObjetBoost();
 player2.setRaceBoost();
 player2.displayChar();
 
+
+// let finalDamageP1 = player1.damageTotal * player2.maxDamageTaken;
+
+let finalDamageP2 = Math.round(player2.damageTotal*player1.maxDamageTaken);
+
 let attackButtonP1 = document.getElementById("attack1");
 let attackButtonP2 = document.getElementById("attack2");
 let healButtonP1 = document.getElementById("heal1");
@@ -178,8 +183,11 @@ else{
 document.getElementById("attack1").addEventListener("click", function(){
     player1.damage();
     console.log(player1.damageTotal);
-    player2.currenthealth = player2.currenthealth - player1.damageTotal;
-    console.log(player2.currenthealth);
+    console.log(player2.maxDamageTaken);
+    console.log("dégat infligé par le joueur 1 :"+Math.round(player1.damageTotal * player2.maxDamageTaken));
+    
+    player2.currenthealth = player2.currenthealth - Math.round(player1.damageTotal * player2.maxDamageTaken);
+    console.log("vie restante au joueur 2: "+player2.currenthealth);
     if(player2.currenthealth<=0){
         player2.currenthealth = 0;
         endGame();
@@ -201,9 +209,10 @@ document.getElementById("surrender1").addEventListener("click", function(){
 
 document.getElementById("attack2").addEventListener("click", function(){
     player2.damage();
-    console.log(player2.damageTotal);
-    player1.currenthealth = player1.currenthealth - player2.damageTotal;
-    console.log(player1.currenthealth);
+    console.log("dégat infligé par le joueur 2 :"+finalDamageP2);
+    
+    player1.currenthealth = player1.currenthealth - finalDamageP2;
+    console.log("vie restante au joueur 1: "+player1.currenthealth);
     if(player1.currenthealth<=0){
         player2.currenthealth = 0;
         endGame();
