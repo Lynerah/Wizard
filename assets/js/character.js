@@ -131,19 +131,24 @@ function endTurnP1(){
     attackButtonP2.disabled = false;
     healButtonP2.disabled = false;
     yieldButtonP2.disabled = false;
-    
+
+    //LIFESTEAL
     if(player2.race == 'skeleton'){
         console.log("vie du PLAYER1 a la fin du tour : "+player1.currenthealth);
         console.log("vie du PLAYER2 a la fin du tour : "+player2.currenthealth);
         player1.currenthealth = player1.currenthealth - Math.round(player1.currenthealth*player2.lifeSteal);
         player2.currenthealth = player2.currenthealth + Math.round(player1.currenthealth*player2.lifeSteal);
         console.log("vie volée = "+Math.round(player1.currenthealth*player2.lifeSteal));
-        console.log('vie JOUEUR 1 debut du tour : '+player1.currenthealth);
-        console.log('vie JOUEUR 2 debut du tour : '+player2.currenthealth);
+        
         if(player1.currenthealth<=0){
             endGame();
             alert('player 2 WON');
         }
+        if(player2.currenthealth>=player2.maxHealth){
+            player2.currenthealth = player2.maxHealth;
+        }
+        console.log('vie JOUEUR 1 debut du tour : '+player1.currenthealth);
+        console.log('vie JOUEUR 2 debut du tour : '+player2.currenthealth);
     }
     
 }
@@ -154,18 +159,23 @@ function endTurnP2(){
     attackButtonP2.disabled = true;
     healButtonP2.disabled = true;
     yieldButtonP2.disabled = true;
+    //LIFESTEAL
     if(player1.race == 'skeleton'){
         console.log("vie du PLAYER2 a la fin du tour : "+player2.currenthealth);
         console.log("vie du PLAYER1 a la fin du tour : "+player1.currenthealth);
         player2.currenthealth = player2.currenthealth - Math.round(player2.currenthealth*player1.lifeSteal);
         player1.currenthealth = player1.currenthealth + Math.round(player2.currenthealth*player1.lifeSteal);
         console.log("vie volée = "+Math.round(player2.currenthealth*player1.lifeSteal));
-        console.log('vie JOUEUR 2 debut du tour : '+player2.currenthealth);
-        console.log('vie JOUEUR 1 debut du tour : '+player1.currenthealth);
+        
         if(player2.currenthealth<=0){
             endGame();
             alert('player 1 WON');
         }
+        if(player1.currenthealth>=player1.maxHealth){
+            player1.currenthealth = player1.maxHealth;
+        }
+        console.log('vie JOUEUR 2 debut du tour : '+player2.currenthealth);
+        console.log('vie JOUEUR 1 debut du tour : '+player1.currenthealth);
     }
 }
 function endGame(){
@@ -218,7 +228,8 @@ document.getElementById("heal1").addEventListener("click", function(){
     endTurnP1(); 
 });
 document.getElementById("surrender1").addEventListener("click", function(){
-    endTurnP1();
+    alert('player 2 WON');
+    endGame();
 });
 
 
@@ -244,7 +255,8 @@ document.getElementById("heal2").addEventListener("click", function(){
     endTurnP2();
 });
 document.getElementById("surrender2").addEventListener("click", function(){
-    endTurnP2();
+    alert('player 1 WON ');
+    endGame();
 });
 
 
