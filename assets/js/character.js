@@ -67,7 +67,7 @@ class Character{
                  break;
              case 'sword' : this.damageBoost = 1.3;
                  break;
-             case 'bow' : this.twiceHit = 0.2;
+             case 'bow' : this.twiceHit = 0.3;
          }
      };
     this.damage = function(){
@@ -90,12 +90,12 @@ class Character{
 
     }
 }
- let player1 = new Character('orc','sword');
+ let player1 = new Character('skeleton','sword');
 player1.setObjetBoost();
 player1.setRaceBoost();
  player1.displayChar();
 
-let player2 = new Character('elves','cape');
+let player2 = new Character('skeleton','cape');
 player2.setObjetBoost();
 player2.setRaceBoost();
 player2.displayChar();
@@ -196,7 +196,12 @@ function checkEndTurn(playerAttack, playerDefense){
         alert(playerDefense.race+" WON")
     }
     else{
-        endTurnP1();
+        if(playerAttack == player1){
+            endTurnP1();
+        }else{
+            endTurnP2();
+        }
+        
     }
 }
 function dodgeBoots(playerAttack,playerDefense){
@@ -255,51 +260,14 @@ else{
 
 document.getElementById("attack1").addEventListener("click", function(){
     player1.damage();
-
-    // CALCUL DES DEGATS AVEC PRISE EN COMPTE DES LESS DAMAGE DE HUMAN 
-    // let finalDamageP1 = Math.round(player1.damageTotal*player2.maxDamageTaken);
-    // console.log("dégat infligé par "+player1.race+" : "+finalDamageP1);
-    
-     //CALCUL REFLECT ELVES
-    //  if(player2.race == 'elves'){
-    //      let randomReflect = Math.random();
-    //      if(randomReflect<= player2.reflect){
-    //          let reflectDamage = finalDamageP1/2;
-    //          player2.currenthealth = player2.currenthealth;
-    //          player1.currenthealth = player1.currenthealth - reflectDamage;
-    //          console.log("REFLECT !! "+player1.race+" recois "+reflectDamage+" dégats, il lui reste : "+player1.currenthealth);
-    //          checkEndTurn(player1,player2);
-            
-    //      }else{
-    //          console.log("miss the reflect ...");
-    //          dodgeBoots(player1,player2);
-    //          checkEndTurn(player1,player2);
-             
-    //      }
-    
-    //  }else{
-    //     dodgeBoots(player1,player2);
-    //     checkEndTurn(player1,player2);
-    //  }
     reflectElvesAndBoots(player1,player2);
-    
-    // CALCUL DE CHANCE DE DODGE AVEC LES BOOTS
-    
-    
-    
-    
-    // CALCUL DE CHANCE DE DOUBLE HIT
-    
-    
-    // VERIF FIN DE TOUR
-    // if(player2.currenthealth<=0){
-    //     player2.currenthealth = 0;
-    //     endGame();
-    //     alert("PLAYER 1 WON");
-    // }else{
-    //     endTurnP1();
-    // }
-    
+    if(player1.item == 'bow'){
+        let randomBow = Math.random();
+        if(randomBow <= player1.twiceHit){
+            console.log(player1.race+" ATTACK TWICE !!!!!!");
+            
+        }
+    }
 });
 document.getElementById("heal1").addEventListener("click", function(){
     player1.heal();
@@ -315,18 +283,7 @@ document.getElementById("surrender1").addEventListener("click", function(){
 
 document.getElementById("attack2").addEventListener("click", function(){
     player2.damage();
-    // CALCUL DES DEGATS AVEC PRISE EN COMPTE DES LESS DAMAGE DE HUMAN 
-    let finalDamageP2 = Math.round(player2.damageTotal*player1.maxDamageTaken);
-    console.log("dégat infligé par le joueur 2 :"+finalDamageP2);
-    player1.currenthealth = player1.currenthealth - finalDamageP2;
-    console.log("vie restante au joueur 1: "+player1.currenthealth);
-    if(player1.currenthealth<=0){
-        player2.currenthealth = 0;
-        endGame();
-        alert("PLAYER 2 WON");
-    }else{
-        endTurnP2();
-    }
+    reflectElvesAndBoots(player2,player1);
     
 });
 document.getElementById("heal2").addEventListener("click", function(){
