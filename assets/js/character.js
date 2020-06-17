@@ -1,4 +1,5 @@
 //Use this script to generate your character
+//class generique des personnages
 function Person(race,item){
     this.race = race;
     this.item = item;
@@ -19,3 +20,11 @@ function Person(race,item){
         return console.log(`I am a ${this.race}, I wield a ${this.item}, my total health point are ${this.maxHealth}`);
     };
 }
+
+// character human
+
+//character orc
+
+//character elf
+ 
+//character vampires
