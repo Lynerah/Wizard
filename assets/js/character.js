@@ -90,12 +90,12 @@ class Character{
 
     }
 }
- let player1 = new Character('skeleton','sword');
+ let player1 = new Character('human','cape');
 player1.setObjetBoost();
 player1.setRaceBoost();
  player1.displayChar();
 
-let player2 = new Character('skeleton','cape');
+let player2 = new Character('elves','boots');
 player2.setObjetBoost();
 player2.setRaceBoost();
 player2.displayChar();
@@ -118,13 +118,32 @@ console.log("le joueur "+playerTurn+" commence");
 
 // MY FUNCTION
 function endTurnP1(){
-    attackButtonP1.disabled = true;
-    healButtonP1.disabled = true;
-    yieldButtonP1.disabled = true;
+    if(player1.item == 'bow'){
+        let randomHitTwice = Math.random();
+        if(randomHitTwice <= player1.twiceHit){
+            randomHitTwice = 1;
+            console.log('hit twice!!!!!!!!!');
+            reflectElvesAndBoots(player1,player2);
 
-    attackButtonP2.disabled = false;
-    healButtonP2.disabled = false;
-    yieldButtonP2.disabled = false;
+        }else{
+            attackButtonP1.disabled = true;
+            healButtonP1.disabled = true;
+            yieldButtonP1.disabled = true;
+
+            attackButtonP2.disabled = false;
+            healButtonP2.disabled = false;
+            yieldButtonP2.disabled = false;
+        }
+    }else{
+        attackButtonP1.disabled = true;
+        healButtonP1.disabled = true;
+        yieldButtonP1.disabled = true;
+
+        attackButtonP2.disabled = false;
+        healButtonP2.disabled = false;
+        yieldButtonP2.disabled = false;
+    }
+   
 
     //LIFESTEAL
     if(player2.race == 'skeleton'){
@@ -147,12 +166,30 @@ function endTurnP1(){
     
 }
 function endTurnP2(){
-    attackButtonP1.disabled = false;
-    healButtonP1.disabled = false;
-    yieldButtonP1.disabled = false;
-    attackButtonP2.disabled = true;
-    healButtonP2.disabled = true;
-    yieldButtonP2.disabled = true;
+    if(player2.item == 'bow'){
+        let randomHitTwice = Math.random();
+        if(randomHitTwice <= player2.twiceHit){
+            randomHitTwice = 1;
+            console.log('hit twice!!!!!!!!!');
+            reflectElvesAndBoots(player2,player1);
+
+        }else{
+            attackButtonP1.disabled = false;
+            healButtonP1.disabled = false;
+            yieldButtonP1.disabled = false;
+            attackButtonP2.disabled = true;
+            healButtonP2.disabled = true;
+            yieldButtonP2.disabled = true;
+        }
+    }else{
+        attackButtonP1.disabled = false;
+        healButtonP1.disabled = false;
+        yieldButtonP1.disabled = false;
+        attackButtonP2.disabled = true;
+        healButtonP2.disabled = true;
+        yieldButtonP2.disabled = true;
+    }
+
     //LIFESTEAL
     if(player1.race == 'skeleton'){
         console.log("vie du PLAYER2 a la fin du tour : "+player2.currenthealth);
@@ -212,7 +249,7 @@ function dodgeBoots(playerAttack,playerDefense){
             console.log("DODGE !!! vie restante de "+playerDefense.race+" : "+playerDefense.currenthealth);
         }else{
             playerDefense.currenthealth = playerDefense.currenthealth - Math.round(playerAttack.damageTotal * playerDefense.maxDamageTaken);
-            console.log("HIT ! vie restante au "+playerDefense.race+" : "+playerDefense.currenthealth);
+            console.log("MISS DODGE ! vie restante au "+playerDefense.race+" : "+playerDefense.currenthealth);
         }
     }else{
             playerDefense.currenthealth = playerDefense.currenthealth - Math.round(playerAttack.damageTotal * playerDefense.maxDamageTaken);
@@ -230,6 +267,7 @@ function reflectElvesAndBoots(playerAttack,playerDefense){
             playerAttack.currenthealth = playerAttack.currenthealth - reflectDamage;
             console.log("REFLECT !! "+playerAttack.race+" recois "+reflectDamage+" dégats, il lui reste : "+playerAttack.currenthealth);
             checkEndTurn(playerAttack,playerDefense);
+            
            
         }else{
             console.log("miss the reflect ...");
@@ -239,8 +277,9 @@ function reflectElvesAndBoots(playerAttack,playerDefense){
         }
    
     }else{
-       dodgeBoots(playerAttack,playerDefense);
-       checkEndTurn(playerAttack,playerDefense);
+        
+          dodgeBoots(playerAttack,playerDefense);
+          checkEndTurn(playerAttack,playerDefense);
     }
  }
 
@@ -261,13 +300,7 @@ else{
 document.getElementById("attack1").addEventListener("click", function(){
     player1.damage();
     reflectElvesAndBoots(player1,player2);
-    if(player1.item == 'bow'){
-        let randomBow = Math.random();
-        if(randomBow <= player1.twiceHit){
-            console.log(player1.race+" ATTACK TWICE !!!!!!");
-            
-        }
-    }
+
 });
 document.getElementById("heal1").addEventListener("click", function(){
     player1.heal();
