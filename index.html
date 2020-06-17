@@ -21,10 +21,27 @@
 	<div class="mainChoice" id="choices">
 
 		<div class="choice" id="choiceP1">
-		    <figure>
-		        <img class="carousel"  src="assets/js/sprites/humanRight.png" alt="Carousel" />
-		    </figure>
+			<div class="input">
+				<input type="text" name="pseudo" id="pseudoPlayer1" placeholder="Votre pseudo" required>
+			</div>
+
+			<div class="flex">
+				<figure>
+		        	<img class="carousel"  src="assets/js/sprites/humanRight.png" alt="Carousel" />
+		    	</figure>
+
+				<div class="dropdown">
+				  <button class="dropbtn">Object</button>
+				  <div class="dropdown-content">
+				    	<option value="boots">Boots</option>
+						<option value="Staff">Staff</option>
+						<option value="Sword">Sword</option>
+						<option value="Bow">Bow</option>
+				  </div>
+				</div>
+			</div>
 		    
+
 		    <button class="btnchoice" type="button" id="next">Next</button>
 			<button class="btnchoice confirm" id="confirmP1">confirmation</button>
 		</div>
@@ -33,9 +50,23 @@
 		<div id="player2" class="sprite left" hidden></div>
 
 		<div class="choice" id="choiceP2">
-			 <figure>
-		        <img class="carouselPlayer2 " id="carouselPlayer2" src="assets/js/sprites/humanRight.png" alt="Carousel" />
-		    </figure>
+			<div class="input">
+				<input type="text" name="pseudo" id="pseudoPalyer2" placeholder="Votre pseudo" required>
+			</div>
+			<div class="flex">
+				 <figure>
+			        <img class="carouselPlayer2 " id="carouselPlayer2" src="assets/js/sprites/humanRight.png" alt="Carousel" />
+			    </figure>
+				<div class="dropdown">
+					<button class="dropbtn">Object</button>
+					<div class="dropdown-content">
+						<option id="option" value="boots">Boots</option>
+						<option id="option" value="Staff">Staff</option>
+						<option id="option" value="Sword">Sword</option>
+						<option id="option" value="Bow">Bow</option>
+					</div>
+				</div>
+			</div>
 
 		    <button class="btnchoice" type="button" id="nextPlayer2">Next</button>
 			<button class="btnchoice confirm" id="confirmP2">confirmation</button>

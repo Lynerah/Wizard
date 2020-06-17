@@ -1,5 +1,5 @@
-// function choice(){
-	//action du bouton confirme
+function choice(){
+	// action du bouton confirme
     document.getElementById("confirmP1").addEventListener("click", function() {
     	document.getElementById("choiceP1").style.display = "none";
     	document.getElementById("awesome").style.display = "block";
@@ -7,49 +7,21 @@
 });
 
     document.getElementById("confirmP2").addEventListener("click", function() {
-    	let perso = document.getElementById("carouselPlayer2").src;
-    	return perso;
-    	console.log(perso);
-    	alert(hello);
     	document.getElementById("choiceP2").style.display = "none";
     	document.getElementById("player2").style.display = "block";
+    	let race = document.getElementById("carouselPlayer2").src;
+    	let pseudo = document.getElementById("pseudoPalyer2").value;
+    	let arme = document.getElementById("option").value;
+    	console.log(race);
+    	console.log(pseudo);
+    	console.log(arme);
 
 
 });
 
-// };
-// choice();
+};
+choice();
 
-// //permet de selectionner un perso
-//  (function() {
-
-//     var sprite = document.querySelector('.sprite'),
-//         // key = {left: false, right: false},
-//         trans = 0,
-//         property = getTransformProperty(sprite);
-
-//     function getTransformProperty(element) {
-//         var properties = [
-//             'transform',
-//             'WebkitTransform',
-//             'msTransform',
-//             'MozTransform',
-//             'OTransform'
-//         ];
-//         var p;
-//         while (p = properties.shift()) {
-//             if (typeof element.style[p] != 'undefined') {
-//                 return p;
-//             }
-//         }
-//         return false;
-//     }
-
-//     // function translate() {
-//     //     sprite.style[property] = 'translateX(' + trans + 'px)';
-//     // }
-
-// });
 
 //choix perso grace a un carousell
 (() => {
