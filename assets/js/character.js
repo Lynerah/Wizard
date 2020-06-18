@@ -90,12 +90,21 @@ class Character{
 
     }
 }
+// CREATION DE LI 
 
+let tableConsole = [];
+let ulList = document.getElementById("ulList");
+
+// RECUP RACE ET ITEM P1
 document.getElementById("confirmP1").addEventListener("click",function(){
     player1ChoiceRace = document.getElementById("P1race").alt;
     player1ChoiceItem = document.getElementById("itemP1choice").value;
     console.log(player1ChoiceItem);
-
+});
+document.getElementById("confirmP2").addEventListener("click",function(){
+    player2ChoiceRace = document.getElementById("P2race").alt;
+    player2ChoiceItem = document.getElementById("itemP2choice").value;
+    console.log(player2ChoiceItem);
 });
 
 
@@ -128,10 +137,7 @@ let yieldButtonP2 = document.getElementById("surrender2");
 
 
 
-// CREATION DE LI 
 
-let tableConsole = [];
-let ulList = document.getElementById("ulList");
 
 // tableConsole.push(number+" "+guessedName);
 // var item = tableConsole[tableConsole.length-1];
