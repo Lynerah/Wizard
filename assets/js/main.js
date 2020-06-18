@@ -8,7 +8,7 @@ function choice(){
 
     document.getElementById("confirmP2").addEventListener("click", function() {
     	document.getElementById("choiceP2").style.display = "none";
-    	document.getElementById("player2").style.display = "block";
+    	document.getElementById("awesome2").style.display = "block";
 
 
 });
