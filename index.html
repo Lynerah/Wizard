@@ -13,9 +13,23 @@
 </head>
 <body>
 	<div class="header">
-		<div class="vieP1">vie p1</div>
-		<div class="console">console</div>
-		<div class="vieP2">vie p2</div>
+		<progress class="vieP1" id="HealthBar" value="20" max="100">
+			<div>vie p1</div>
+		</progress>
+
+		
+		<div class="console">
+			<ul>
+				<li>
+					<p> Hello</p>
+				</li>
+			</ul>
+		</div>
+
+		<progress class="vieP2" id="HealthBar" value="20" max="100">
+			<div>vie p2</div>
+		</progress>
+	
 	</div>
 	
 	<div class="mainChoice" id="choices">
@@ -76,14 +90,14 @@
 
 	<footer>
 		<div class="btnP1">
-			<button id="test"></button>
-			<button></button>
-			<button></button>
+			<button id="attack1">Attack</button>
+			<button id="heal1">Heal</button>
+			<button id="surrender1">Yield</button>
 		</div>
 		<div class="btnP2">
-			<button></button>
-			<button></button>
-			<button></button>
+			<button id="attack2">Attack</button>
+			<button id="heal2">Heal</button>
+			<button id="surrender2">Yield</button>
 		</div>
 	</footer>
 

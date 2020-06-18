@@ -66,3 +66,43 @@ choice();
     });
 
 })();
+
+// function HealthBar(color,length)
+// {
+//   this.barLength=length;
+//   this.color=color;
+//   this.isdead= false;
+// }
+
+// HealthBar.prototype.increase = function (amount) 
+// {
+//   if ( this.barLength<=100){this.barLength+=amount};
+//    this.changeColor();
+// }
+
+// HealthBar.prototype.decrease = function(amount)
+// {
+//  if (!this.isdead)
+//   {
+//          this.barLength-=amount;
+//   }
+//  this.changeColor;
+// }
+
+// HealthBar.prototype.changeColor= function()
+// {
+//    switch(this.barLength)
+//   {
+//      case (80<=this.barLength<=100):
+//      {
+//           this.color='yellow';
+//      }
+//       case (50<=this.barLength<=80):
+//      {
+//           this.color='orange';
+//      }
+     
+//   }
+// }
+
+// const myHealthBar= new HealthBar('green',100);
