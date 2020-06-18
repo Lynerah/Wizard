@@ -90,6 +90,17 @@ class Character{
 
     }
 }
+
+document.getElementById("confirmP1").addEventListener("click",function(){
+    player1ChoiceRace = document.getElementById("P1race").alt;
+    player1ChoiceItem = document.getElementById("itemP1choice").value;
+    console.log(player1ChoiceItem);
+
+});
+
+
+
+
  let player1 = new Character('human','cape');
 player1.setObjetBoost();
 player1.setRaceBoost();

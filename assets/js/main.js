@@ -32,7 +32,12 @@ choice();
         "assets/js/sprites/squelletRight.png",
         "assets/js/sprites/humanRight.png",
     ];
-
+    const galleryValue = [
+        "elves",
+        "orc",
+        "skeleton",
+        "human",
+    ];
 
     const image = document.querySelector("img"); 
     let i = 0;
@@ -44,7 +49,8 @@ choice();
             // En fin de longueur du tableau, on redémarre au début de l'index
             i = 0;  
         }
-        image.src = gallery[i];   
+        image.src = gallery[i];
+        image.alt =  galleryValue[i];
         // On associe image aux éléments du tableau (suivant le numéro d'index)                       
         
         
