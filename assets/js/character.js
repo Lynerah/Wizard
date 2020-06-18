@@ -404,11 +404,15 @@ function game(){
             endGame();
             alert(playerAttack.race+" WON");
             addConsole(playerAttack.race+" WON");
+            if(playerAttack == player1){
+                document.getElementById("persoP1").src = "assets/js/sprites/win.svg";
+            }
         }else if(playerAttack.currenthealth <= 0){
             playerAttack.currenthealth = 0;
             endGame();
             alert(playerDefense.race+" WON");
             addConsole(playerDefense.race+" WON");
+           
         }
         else{
             if(playerAttack == player1){
