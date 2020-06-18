@@ -9,12 +9,6 @@ function choice(){
     document.getElementById("confirmP2").addEventListener("click", function() {
     	document.getElementById("choiceP2").style.display = "none";
     	document.getElementById("player2").style.display = "block";
-    	let race = document.getElementById("carouselPlayer2").src;
-    	let pseudo = document.getElementById("pseudoPalyer2").value;
-    	let arme = document.getElementById("option").value;
-    	console.log(race);
-    	console.log(pseudo);
-    	console.log(arme);
 
 
 });
@@ -56,7 +50,7 @@ choice();
         
     });
 
-   const imagePlayer2 = document.getElementById("carouselPlayer2");
+   const imagePlayer2 = document.getElementById("P2race");
 
 	document.getElementById("nextPlayer2").addEventListener("click", () => {
         i++
@@ -65,7 +59,8 @@ choice();
             // En fin de longueur du tableau, on redémarre au début de l'index
             i = 0;  
         }
-        imagePlayer2.src = gallery[i];   
+        imagePlayer2.src = gallery[i];  
+        imagePlayer2.alt =  galleryValue[i]; 
         // On associe image aux éléments du tableau (suivant le numéro d'index)                       
         
         
@@ -73,42 +68,3 @@ choice();
 
 })();
 
-// function HealthBar(color,length)
-// {
-//   this.barLength=length;
-//   this.color=color;
-//   this.isdead= false;
-// }
-
-// HealthBar.prototype.increase = function (amount) 
-// {
-//   if ( this.barLength<=100){this.barLength+=amount};
-//    this.changeColor();
-// }
-
-// HealthBar.prototype.decrease = function(amount)
-// {
-//  if (!this.isdead)
-//   {
-//          this.barLength-=amount;
-//   }
-//  this.changeColor;
-// }
-
-// HealthBar.prototype.changeColor= function()
-// {
-//    switch(this.barLength)
-//   {
-//      case (80<=this.barLength<=100):
-//      {
-//           this.color='yellow';
-//      }
-//       case (50<=this.barLength<=80):
-//      {
-//           this.color='orange';
-//      }
-     
-//   }
-// }
-
-// const myHealthBar= new HealthBar('green',100);

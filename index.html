@@ -1,9 +1,12 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>RPG Challenge</title>
-<!-- 	<canvas id="canvas">Votre navigateur ne supporte pas HTML5, veuillez le mettre à jour pour jouer.</canvas> -->
 
+	<meta charset="utf-8">
+	<meta name="vieuwpoort" content="width=device-widht,initial-scale=1.0">
+	<title>RPG Challenge</title>
+
+	<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
 	<link rel="stylesheet" type="text/css" href="assets/css/style.css" />
 
 	
@@ -12,8 +15,8 @@
 
 </head>
 <body>
-	<div class="header">
-		<progress class="vieP1" id="HealthBar" value="20" max="100">
+	<header class="header">
+		<progress class="vieP1 vieGreen" id="HealthBarP1" value="100" max="100">
 			<div>vie p1</div>
 		</progress>
 
@@ -24,13 +27,13 @@
 			</ul>
 		</div>
 
-		<progress class="vieP2" id="HealthBar" value="20" max="100">
+		<progress class="vieP2 vieGreen" id="HealthBarP2" value="100" max="100">
 			<div>vie p2</div>
 		</progress>
 	
-	</div>
+	</header> 
 	
-	<div class="mainChoice" id="choices">
+	<main class="mainChoice" id="choices">
 
 		<div class="choice" id="choiceP1">
 			<div class="input">
@@ -39,7 +42,7 @@
 
 			<div class="flex">
 				<figure>
-		        	<img class="carousel"  id="P1race" src="assets/js/sprites/humanRight.png" alt="Carousel" />
+		        	<img class="carousel"  id="P1race" src="assets/js/sprites/humanRight.png" alt="human" />
 		    	</figure>
 
 				<div class="dropdown">
@@ -58,7 +61,7 @@
 			<button class="btnchoice confirm" id="confirmP1">confirmation</button>
 		</div>
 
-		<div id="awesome" class="sprite right" hidden></div>
+		<div id="awesome" class="sprite right" hidden><img id="persoP1" src=""></div>
 		<div id="player2" class="sprite left" hidden></div>
 
 		<div class="choice" id="choiceP2">
@@ -67,15 +70,17 @@
 			</div>
 			<div class="flex">
 				 <figure>
-			        <img class="carouselPlayer2 " id="carouselPlayer2" src="assets/js/sprites/humanRight.png" alt="Carousel" />
+			        <img class="carouselPlayer2 " id="P2race" src="assets/js/sprites/humanRight.png" alt="human" />
 			    </figure>
 				<div class="dropdown">
 					<button class="dropbtn">Object</button>
 					<div class="dropdown-content">
-						<option id="option" value="boots">Boots</option>
-						<option id="option" value="Staff">Cape</option>
-						<option id="option" value="Sword">Sword</option>
-						<option id="option" value="Bow">Bow</option>
+						<select id="itemP2choice" class="dropdown-content">
+							<option id="option" value="boots">Boots</option>
+							<option id="option" value="Staff">Cape</option>
+							<option id="option" value="Sword">Sword</option>
+							<option id="option" value="Bow">Bow</option>
+						</select>
 					</div>
 				</div>
 			</div>
@@ -84,15 +89,15 @@
 			<button class="btnchoice confirm" id="confirmP2">confirmation</button>
 		</div>
 
-	</div>
+	</main> 
 
 	<footer>
-		<div class="btnP1">
+		<div class="displayNone btnP1" id="btnP1">
 			<button id="attack1">Attack</button>
 			<button id="heal1">Heal</button>
 			<button id="surrender1">Yield</button>
 		</div>
-		<div class="btnP2">
+		<div class="displayNone btnP2 " id="btnP2">
 			<button id="attack2">Attack</button>
 			<button id="heal2">Heal</button>
 			<button id="surrender2">Yield</button>
