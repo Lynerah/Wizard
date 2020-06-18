@@ -112,9 +112,33 @@ let yieldButtonP2 = document.getElementById("surrender2");
 
 
 
+
+
+
+
+
+// CREATION DE LI 
+
+let tableConsole = [];
+let ulList = document.getElementById("ulList");
+
+// tableConsole.push(number+" "+guessedName);
+// var item = tableConsole[tableConsole.length-1];
+// var elem = document.createElement("li");
+// elem.innerHTML = item;
+// ulList.appendChild(elem);
+
  // RANDOM POUR SAVOIR QUEL JOUEUR COMMENCE
  let playerTurn = Math.round(Math.random() + 1);
 console.log("le joueur "+playerTurn+" commence");
+addConsole("le joueur "+playerTurn+" commence");
+
+
+
+
+
+
+
 
 // MY FUNCTION
 function endTurnP1(){
@@ -209,6 +233,14 @@ function endTurnP2(){
         console.log('vie JOUEUR 1 debut du tour : '+player1.currenthealth);
     }
 }
+function addConsole(montexte){
+    tableConsole.push(montexte);
+    var item = tableConsole[tableConsole.length-1];
+    var elem = document.createElement("li");
+    elem.innerHTML = item;
+    ulList.appendChild(elem);   
+};
+
 function endGame(){
     attackButtonP1.disabled = true;
     healButtonP1.disabled = true;
@@ -258,6 +290,8 @@ function dodgeBoots(playerAttack,playerDefense){
 }
 function reflectElvesAndBoots(playerAttack,playerDefense){
     let finalDamage = Math.round(playerAttack.damageTotal*playerDefense.maxDamageTaken);
+
+    addConsole("dégat infligé par"+playerAttack.race+" : "+finalDamage);
     console.log("dégat infligé par "+playerAttack.race+" : "+finalDamage);
     if(playerDefense.race == 'elves'){
         let randomReflect = Math.random();
