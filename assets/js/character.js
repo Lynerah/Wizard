@@ -131,23 +131,47 @@ let image = document.getElementById("persoP1");
 // VARIABLE QUI DEMARRE LA GAME 
 let start = 0;
 document.getElementById("confirmP1").addEventListener("click",function(){
+    player1ChoiceName = document.getElementById("pseudoPlayer1").value;
+    if(player1ChoiceName == ""){
+        player1ChoiceName = "P1";
+    }
+    console.log(player1ChoiceName);
     player1ChoiceRace = document.getElementById("P1race").alt;
     player1ChoiceItem = document.getElementById("itemP1choice").value;
     start++;
     if(start == 2){
         document.getElementById("btnP1").style.display = "flex";
         document.getElementById("btnP2").style.display = "flex";
+        document.getElementById("HealthBarP1").style.display = "block";
+        document.getElementById("HealthBarP2").style.display = "block";
+        document.getElementById("console").style.display = "block";
+        document.getElementById("HealthBarP1").className = "vieP1 vieGreen animate__animated animate__fadeInLeftBig";
+        document.getElementById("HealthBarP2").className = "vieP2 vieGreen animate__animated animate__fadeInRightBig";
+        document.getElementById("console").className = "console animate__animated animate__fadeInDownBig";
         game();
     }
 
 });
 document.getElementById("confirmP2").addEventListener("click",function(){
+    player2ChoiceName = document.getElementById("pseudoPlayer2").value;
+    if(player2ChoiceName == ""){
+        player2ChoiceName = "P2";
+    }
     player2ChoiceRace = document.getElementById("P2race").alt;
     player2ChoiceItem = document.getElementById("itemP2choice").value;
     start++
     if(start == 2){
         document.getElementById("btnP1").style.display = "flex";
         document.getElementById("btnP2").style.display = "flex";
+        document.getElementById("btnP1").className = "btnP1 animate__animated animate__fadeInUp";
+        document.getElementById("btnP2").className = "btnP2 animate__animated animate__fadeInUp";
+        
+        document.getElementById("HealthBarP1").style.display = "block";
+        document.getElementById("HealthBarP2").style.display = "block";
+        document.getElementById("console").style.display = "block";
+        document.getElementById("HealthBarP1").className = "vieP1 vieGreen animate__animated animate__fadeInLeftBig";
+        document.getElementById("HealthBarP2").className = "vieP2 vieGreen animate__animated animate__fadeInRightBig";
+        document.getElementById("console").className = "console animate__animated animate__fadeInDownBig";
         game();
     }
 });
@@ -210,12 +234,12 @@ function game(){
     
     
     
-     let player1 = new Character(player1ChoiceRace,player1ChoiceItem,"P1");
+     let player1 = new Character(player1ChoiceRace,player1ChoiceItem,player1ChoiceName);
     player1.setObjetBoost();
     player1.setRaceBoost();
      player1.displayChar();
     
-    let player2 = new Character(player2ChoiceRace,player2ChoiceItem,"P2");
+    let player2 = new Character(player2ChoiceRace,player2ChoiceItem,player2ChoiceName);
     player2.setObjetBoost();
     player2.setRaceBoost();
     player2.displayChar();
@@ -398,27 +422,65 @@ function game(){
         attackButtonP2.disabled = true;
         healButtonP2.disabled = true;
         yieldButtonP2.disabled = true;
+        attackButtonP1.style.display = "none";
+        attackButtonP2.style.display = "none";
+        healButtonP1.style.display = "none";
+        healButtonP2.style.display = "none";
+        yieldButtonP1.style.display = "none";
+        yieldButtonP2.style.display = "none";
+        //AFFICHER LA BOX REPLAY
+        document.getElementById("replay").style.display = "block";
+        document.getElementById("replayYES").addEventListener('click', function(){
+            location.reload();
+            console.log("bonjour");
+        });
+        document.getElementById("replayNO").addEventListener('click', function(){
+            document.getElementById("replay").style.display = "none";
+        });
         
     }
+    // function replay(){
+        
+    //     if (confirm('Replay ?')) {
+    //         // Save it!
+    //         location.reload();
+    //       } else {
+    //         // Do nothing!
+           
+    //       }
+    // }
 
     function checkEndTurn(playerAttack, playerDefense){
         if(playerDefense.currenthealth<=0){
             playerDefense.currenthealth = 0;
-            endGame();
-            alert(playerAttack.race+" WON");
-            addConsole(playerAttack.name+" WON");
+            
+            
             if(playerAttack == player1){
                 document.getElementById("persoP1").src = "assets/js/sprites/win.svg";
                 document.getElementById("persoP2").src = "assets/js/sprites/loose.svg";
+                document.getElementById("persoP1").className = "animate__animated animate__flash";
+                document.getElementById("persoP2").className = "animate__animated animate__flash";
+            
             }else{
                 document.getElementById("persoP1").src = "assets/js/sprites/loose.svg";
                 document.getElementById("persoP2").src = "assets/js/sprites/win.svg";
+                document.getElementById("persoP1").className = "animate__animated animate__flash";
+                document.getElementById("persoP2").className = "animate__animated animate__flash";
+                
             }
+
+            
+            addConsole(playerAttack.name+" WON");
+            endGame();
+            
+
         }else if(playerAttack.currenthealth <= 0){
             playerAttack.currenthealth = 0;
-            endGame();
-            alert(playerDefense.race+" WON");
+            
+            
             addConsole(playerDefense.name+" WON");
+            endGame();
+            
             
            
         }
@@ -527,6 +589,7 @@ function game(){
     
     
 };
+ 
 
 //   switch(player1ChoiceRace){
 //     case 'human' : 

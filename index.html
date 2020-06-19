@@ -5,7 +5,7 @@
 	<meta charset="utf-8">
 	<meta name="vieuwpoort" content="width=device-widht,initial-scale=1.0">
 	<title>RPG Challenge</title>
-
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.0.0/animate.min.css" />
 	<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
 	<link rel="stylesheet" type="text/css" href="assets/css/style.css" />
 
@@ -21,7 +21,7 @@
 		</progress>
 
 		
-		<div class="console">
+		<div id="console" class="console">
 			<ul id="ulList">
 				
 			</ul>
@@ -49,7 +49,7 @@
 				  <button class="dropbtn">Object</button>
 				  <select id="itemP1choice" class="dropdown-content">
 				    	<option value="boots">Boots</option>
-						<option value="cape">Staff</option>
+						<option value="cape">Cape</option>
 						<option value="sword">Sword</option>
 						<option value="bow">Bow</option>
 				  </select>
@@ -62,15 +62,15 @@
 		</div>
 
 		<div id="awesome" class="sprite right" hidden>
-			<img id="persoP1" src="">
+			<img class="" id="persoP1" src="">
 		</div>
 		<div id="awesome2" class="sprite left" hidden>
-			<img id="persoP2" src="">
+			<img class="" id="persoP2" src="">
 		</div>
 
 		<div class="choice" id="choiceP2">
 			<div class="input">
-				<input type="text" name="pseudo" id="pseudoPalyer2" placeholder="Votre pseudo" required>
+				<input type="text" name="pseudo" id="pseudoPlayer2" placeholder="Votre pseudo" required>
 			</div>
 			<div class="flex">
 				 <figure>
@@ -92,8 +92,14 @@
 		    <button class="btnchoice" type="button" id="nextPlayer2">Next</button>
 			<button class="btnchoice confirm" id="confirmP2">confirmation</button>
 		</div>
-
 	</main> 
+	<section>
+		<div class="test" id="replay">
+			<h2 class="replayTitle">REPLAY?</h2>
+			<button id="replayYES" class="replay">YES</button>
+			<button id="replayNO" class="replay">NO</button>
+		</div>
+	</section>
 
 	<footer>
 		<div class="displayNone btnP1" id="btnP1">

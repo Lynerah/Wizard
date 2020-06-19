@@ -51,6 +51,9 @@ img{
     width: 100%;
 }
 .vieP1{
+	/* test */
+	display: none;
+	/* */
 	width: 234px;
 	height: 18px;
 	border: solid 2px black;
@@ -61,6 +64,9 @@ img{
 }
 
 .console{
+	/* test */
+	display: none;
+	/* */
 	width: 888px;
 	height: 169px;
 	border: solid 2px black;
@@ -71,6 +77,9 @@ img{
 }
 
 .vieP2{
+	/* test */
+	display: none;
+	/* */
 	width: 234px;
 	height: 18px;
 	border: solid 2px black;
@@ -119,6 +128,8 @@ img{
 	margin: auto;
 	
 	border-radius: 25px;
+
+	
 }
 
 footer{
@@ -267,3 +278,47 @@ input{
 }
 
 
+
+
+/* test animation progress bar */
+::-webkit-progress-value {
+	transition: width 1s;
+	
+  }
+
+
+
+  /* TEST REPLAY */
+  .test{
+	  width: 250px;
+	  display: none;
+	  background-color: white;
+	  padding: 20px;
+	  margin: 0 auto;
+  }
+  .replayTitle{
+	  text-align: center;
+	  margin-top: 0;
+  }
+  .replay{
+	  width: 100px;
+	  margin-left: 10px;
+  }
+
+
+  /* TEST PSEUDO */
+  ::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+	color: yellow;
+	opacity: 0.8; /* Firefox */
+  }
+  input[type='text'] { 
+	  	margin-top: 20%;
+		font-family: 'Press Start 2P', cursive;
+		font-size: 30px; 
+		text-align: center;
+		border: none;
+    	background: none;
+		outline: none;
+		color: white;
+		
+	}
