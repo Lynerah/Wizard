@@ -59,7 +59,7 @@ img{
 	width: 234px;
 	height: 18px;
 	border: solid 2px black;
-	background-color: red;
+	background-color: grey;
 	border-radius: 20px;
 	margin-top: 2%;
 	margin-left: 3%;
@@ -85,7 +85,7 @@ img{
 	width: 234px;
 	height: 18px;
 	border: solid 2px black;
-	background-color: red;
+	background-color: grey;
 	border-radius: 20px;
 	margin-top: 2%;
 	margin-right: 3%;
@@ -269,9 +269,14 @@ input{
 .vieRed::-webkit-progress-value { background: orangered; }
 .vieRed::-moz-progress-bar { background: orangered; }
 
-.ulList, li{
+.ulList, li:nth-child(even){
     list-style: none;
     color: violet; 
+    text-align: center;
+}
+.ulList, li:nth-child(odd){
+    list-style: none;
+    color: bisque; 
     text-align: center;
 }
 
@@ -341,9 +346,9 @@ input{
 	#awesome2{
 		margin-top: 80px;
 		margin-bottom: 80px;
-		
-		
 	}
 	.mirror{
 		transform:scaleX(-1);
 	}
+
+	

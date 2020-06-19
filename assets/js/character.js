@@ -330,8 +330,13 @@ function game(){
     
      // RANDOM POUR SAVOIR QUEL JOUEUR COMMENCE
     let playerTurn = Math.round(Math.random() + 1);
-    console.log("le joueur "+playerTurn+" commence");
-    addConsole("le joueur "+playerTurn+" commence");
+    if(playerTurn == 1){
+        addConsole( player1.name+" commence");
+    }else{
+        addConsole( player2.name+" commence");
+    }
+    
+    
     
     
     
