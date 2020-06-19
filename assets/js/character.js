@@ -539,15 +539,13 @@ function game(){
                 document.getElementById("awesome2").className = "sprite left";
                 document.getElementById("persoP1").src = "assets/js/sprites/win.svg";
                 document.getElementById("persoP2").src = "assets/js/sprites/loose.svg";
-                document.getElementById("persoP1").className = "animate__animated animate__flash";
-                document.getElementById("persoP2").className = "animate__animated animate__flash";
+                document.getElementById("persoP2").className = "animate__animated animate__hinge";
             
             }else{
                 document.getElementById("awesome2").className = "sprite left";
                 document.getElementById("persoP1").src = "assets/js/sprites/loose.svg";
                 document.getElementById("persoP2").src = "assets/js/sprites/win.svg";
-                document.getElementById("persoP1").className = "animate__animated animate__flash";
-                document.getElementById("persoP2").className = "animate__animated animate__flash";
+                document.getElementById("persoP1").className = "animate__animated animate__hinge";
                 
             }
 
@@ -652,6 +650,8 @@ function game(){
         document.getElementById("awesome2").className = "sprite left";
         document.getElementById("persoP1").src = "assets/js/sprites/loose.svg";
         document.getElementById("persoP2").src = "assets/js/sprites/win.svg";
+        document.getElementById("persoP1").className = "animate__animated animate__hinge";
+        
         endGame();
     });
     
@@ -673,6 +673,8 @@ function game(){
         document.getElementById("awesome2").className = "sprite left";
         document.getElementById("persoP2").src = "assets/js/sprites/loose.svg";
         document.getElementById("persoP1").src = "assets/js/sprites/win.svg";
+        document.getElementById("persoP2").className = "animate__animated animate__hinge";
+        
         endGame();
     });
     
