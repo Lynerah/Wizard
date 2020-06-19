@@ -341,6 +341,9 @@ input{
 	#awesome2{
 		margin-top: 80px;
 		margin-bottom: 80px;
-		transform:scaleX(-1);
 		
+		
+	}
+	.mirror{
+		transform:scaleX(-1);
 	}
