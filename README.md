@@ -1,4 +1,3 @@
-[WIZARD SITE](https://mmarinom.github.io/Wizard/)
 # Wizard
 Dans le cadre de la formation Becode, nous avons du realiser un mini RPG en utilisant html et javascript.
 

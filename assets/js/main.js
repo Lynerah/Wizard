@@ -16,6 +16,13 @@ function choice(){
 };
 choice();
 
+// dismiss Titre
+
+function hideTitle(){
+    var title =  document.getElementById("title");
+    title.classList.add("hidden");
+    title.classList.remove("title");
+}
 
 //choix perso grace a un carousell
 (() => {
