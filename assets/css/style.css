@@ -12,6 +12,8 @@ body{
 	display: flex;
 	flex-direction: column;
 	font-family: 'Press Start 2P', cursive;
+	/* test bug barre */
+	/* overflow: hidden; */
 }
 
 figure{
@@ -99,7 +101,7 @@ img{
 }
 
 .choice{
-	margin-top: 3%;
+	margin-top: 10%;
 	display: flex;
 	flex-direction: column;
 /*	border: solid 2px black;
@@ -312,7 +314,7 @@ input{
 	opacity: 0.8; /* Firefox */
   }
   input[type='text'] { 
-	  	margin-top: 20%;
+	  	/* margin-top: 20%; */
 		font-family: 'Press Start 2P', cursive;
 		font-size: 30px; 
 		text-align: center;
@@ -320,5 +322,25 @@ input{
     	background: none;
 		outline: none;
 		color: white;
+		
+	}
+
+
+
+
+	/*test bug boutton*/ 
+	main{
+		margin-bottom: 30px;
+	}
+
+	/* AWESOME MARGIN PROBLEM */
+	#awesome{
+		margin-top: 80px;
+		margin-bottom: 80px;
+	}
+	#awesome2{
+		margin-top: 80px;
+		margin-bottom: 80px;
+		transform:scaleX(-1);
 		
 	}

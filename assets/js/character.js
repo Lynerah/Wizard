@@ -128,8 +128,10 @@ document.getElementById("confirmP2").addEventListener("click",function(){
 });
 
 let image = document.getElementById("persoP1");
+let image2 = document.getElementById("persoP2");
 // VARIABLE QUI DEMARRE LA GAME 
 let start = 0;
+//
 document.getElementById("confirmP1").addEventListener("click",function(){
     player1ChoiceName = document.getElementById("pseudoPlayer1").value;
     if(player1ChoiceName == ""){
@@ -176,55 +178,127 @@ document.getElementById("confirmP2").addEventListener("click",function(){
     }
 });
 
-function game(){
 
+
+
+
+
+// LA GAME COMMENCE !!!!!!!!!!!!!!!!!!!!!
+
+
+
+
+
+
+
+
+
+
+
+function game(){
+    
     switch(player1ChoiceRace){
         case 'human' : 
             switch(player1ChoiceItem){
-                  case 'boots' : image.src =  "assets/js/sprites/human.png" ;
+                  case 'boots' : image.src =  "assets/js/sprites/human_boots.png" ;
                     break;
-                 case 'cape' : image.src =  "assets/js/sprites/human.png" ;
+                 case 'cape' : image.src =  "assets/js/sprites/human_cape.png" ;
                      break;
-                 case 'sword' : image.src =  "assets/js/sprites/human.png" ;
+                 case 'sword' : image.src =  "assets/js/sprites/human_sword.png" ;
                      break;
-                 case 'bow' : image.src =  "assets/js/sprites/human.png" ;
+                 case 'bow' : image.src =  "assets/js/sprites/human_bow.png" ;
                     break;
             }
             break;
          case 'orc' : 
             switch(player1ChoiceItem){
-                  case 'boots' : image.src =  "assets/js/sprites/human.png" ;
+                  case 'boots' : image.src =  "assets/js/sprites/orc_boots.png" ;
                     break;
-                 case 'cape' : image.src =  "assets/js/sprites/human.png" ;
+                 case 'cape' : image.src =  "assets/js/sprites/orc_cape.png" ;
                      break;
-                 case 'sword' : image.src =  "assets/js/sprites/human.png" ;
+                 case 'sword' : image.src =  "assets/js/sprites/orc_sword.png" ;
                      break;
-                 case 'bow' : image.src =  "assets/js/sprites/human.png" ;
+                 case 'bow' : image.src =  "assets/js/sprites/orc_bow.png" ;
                      break;
             }
             break;
     
         case 'elves' : 
             switch(player1ChoiceItem){
-                  case 'boots' : image.src =  "assets/js/sprites/human.png"  ;
+                  case 'boots' : image.src =  "assets/js/sprites/elf_boots.png"  ;
                     break;
-                 case 'cape' : image.src =  "assets/js/sprites/human.png" ;
+                 case 'cape' : image.src =  "assets/js/sprites/elf_cape.png" ;
                      break;
-                 case 'sword' : image.src =  "assets/js/sprites/human.png" ;
+                 case 'sword' : image.src =  "assets/js/sprites/elf_sword.png" ;
                      break;
-                 case 'bow' :image.src =  "assets/js/sprites/human.png" ;
+                 case 'bow' :image.src =  "assets/js/sprites/elf_bow.png" ;
                      break;
             }
                      break;
         case 'skeleton' : 
             switch(player1ChoiceItem){
-                  case 'boots' : image.src =  "assets/js/sprites/human.png" ;
+                  case 'boots' : image.src =  "assets/js/sprites/skeleton_boots.png" ;
                     break;
-                 case 'cape' : image.src =  "assets/js/sprites/human.png" ;
+                 case 'cape' : image.src =  "assets/js/sprites/skeleton_cape.png" ;
                      break;
-                 case 'sword' : image.src =  "assets/js/sprites/human.png" ; 
+                 case 'sword' : image.src =  "assets/js/sprites/skeleton_sword.png" ; 
                      break;
-                 case 'bow' : image.src =  "assets/js/sprites/human.png" ;
+                 case 'bow' : image.src =  "assets/js/sprites/skeleton_bow.png" ;
+                     break;
+            }
+                     break;
+            
+      };
+
+
+
+      switch(player2ChoiceRace){
+        case 'human' : 
+            switch(player2ChoiceItem){
+                  case 'boots' : image2.src =  "assets/js/sprites/human_boots.png" ;
+                    break;
+                 case 'cape' : image2.src =  "assets/js/sprites/human_cape.png" ;
+                     break;
+                 case 'sword' : image2.src =  "assets/js/sprites/human_sword.png" ;
+                     break;
+                 case 'bow' : image2.src =  "assets/js/sprites/human_bow.png" ;
+                    break;
+            }
+            break;
+         case 'orc' : 
+            switch(player2ChoiceItem){
+                  case 'boots' : image2.src =  "assets/js/sprites/orc_boots.png" ;
+                    break;
+                 case 'cape' : image2.src =  "assets/js/sprites/orc_cape.png" ;
+                     break;
+                 case 'sword' : image2.src =  "assets/js/sprites/orc_sword.png" ;
+                     break;
+                 case 'bow' : image2.src =  "assets/js/sprites/orc_bow.png" ;
+                     break;
+            }
+            break;
+    
+        case 'elves' : 
+            switch(player2ChoiceItem){
+                  case 'boots' : image2.src =  "assets/js/sprites/elf_boots.png"  ;
+                    break;
+                 case 'cape' : image2.src =  "assets/js/sprites/elf_cape.png" ;
+                     break;
+                 case 'sword' : image2.src =  "assets/js/sprites/elf_sword.png" ;
+                     break;
+                 case 'bow' :image2.src =  "assets/js/sprites/elf_bow.png" ;
+                     break;
+            }
+                     break;
+        case 'skeleton' : 
+            switch(player2ChoiceItem){
+                  case 'boots' : image2.src =  "assets/js/sprites/skeleton_boots.png" ;
+                    break;
+                 case 'cape' : image2.src =  "assets/js/sprites/skeleton_cape.png" ;
+                     break;
+                 case 'sword' : image2.src =  "assets/js/sprites/skeleton_sword.png" ; 
+                     break;
+                 case 'bow' : image2.src =  "assets/js/sprites/skeleton_bow.png" ;
                      break;
             }
                      break;
