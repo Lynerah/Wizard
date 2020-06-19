@@ -305,7 +305,8 @@ function game(){
             
       };
     
-    
+    image.className = "animate__animated animate__flash";
+    image2.className = "animate__animated animate__flash";
     
     
      let player1 = new Character(player1ChoiceRace,player1ChoiceItem,player1ChoiceName);
@@ -640,6 +641,7 @@ function game(){
     document.getElementById("attack1").addEventListener("click", function(){
         player1.damage();
         reflectElvesAndBoots(player1,player2);
+        
     
     });
     document.getElementById("heal1").addEventListener("click", function(){
@@ -647,7 +649,9 @@ function game(){
         endTurnP1(); 
     });
     document.getElementById("surrender1").addEventListener("click", function(){
-        alert('player 2 WON');
+        document.getElementById("awesome2").className = "sprite left";
+        document.getElementById("persoP1").src = "assets/js/sprites/loose.svg";
+        document.getElementById("persoP2").src = "assets/js/sprites/win.svg";
         endGame();
     });
     
@@ -658,13 +662,17 @@ function game(){
         player2.damage();
         reflectElvesAndBoots(player2,player1);
         
+        
+        
     });
     document.getElementById("heal2").addEventListener("click", function(){
         player2.heal();
         endTurnP2();
     });
     document.getElementById("surrender2").addEventListener("click", function(){
-        alert('player 1 WON ');
+        document.getElementById("awesome2").className = "sprite left";
+        document.getElementById("persoP2").src = "assets/js/sprites/loose.svg";
+        document.getElementById("persoP1").src = "assets/js/sprites/win.svg";
         endGame();
     });
     
